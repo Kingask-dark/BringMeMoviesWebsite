@@ -12,7 +12,7 @@ Install BringMeMoviesWebsite
   cd BringMeMoviesWebsite
   pip install -r requirements.txt
 ```
-## Neccessary Configuration
+## Necessary Configuration
   Before running the project you will need to do:
   1) Extract similarity.zip file from Templates/BringMeMovies/main/
   2) Create your account in https://www.themoviedb.org/ and generate your api key and put it in fetch_posters function in views.py file 

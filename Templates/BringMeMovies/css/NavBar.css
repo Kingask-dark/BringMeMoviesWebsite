@@ -1,0 +1,55 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    z-index: 10; 
+  }
+  
+  .navcontainer {
+    max-width: 60px;
+    height: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+  }
+
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .nav-left {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .logo {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .logo img {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .login-btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .login-btn:hover {
+    background-color: #0069d9;
+  }
+  

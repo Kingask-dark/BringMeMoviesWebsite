@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .container{
+    margin: 100px;
+  }
+  .space {
+    padding: 10px 10px;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .card {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    width: calc(20% - 20px);
+    margin: 10px;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .card:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 10px #ccc;
+  }
+  img {
+    width: 180px;
+    height: 180px;
+  }
+  .cardTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 0;
+  }
+  .cardDesc {
+    font-size: 14px;
+    margin: 10px;
+    padding: 0;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .NoMov{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(238, 229, 229);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgb(222, 215, 215);
+    background-color: #f7ebeb;
+    visibility: hidden;
+  }
+.visible{
+  visibility: visible;
+}
+  @media only screen and (max-width: 800px) {
+    card {
+      width: calc(50% - 20px); /* 2 cards per row */
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }

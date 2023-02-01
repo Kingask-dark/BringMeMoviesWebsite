@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+    <style>
+      {% include 'BringMeMovies/css/Homepage.css' %}
+    </style>
+  </head>
+  <body>
+    {% include 'BringMeMovies/html/NavBar.html' %}
+    <div class="container">
+      <div>
+        <h3 class="flex">Bring Me Movies</h3>
+        <p class="flex">
+          Wellcome to Bring Me Movies ( Movie Recommendation System )
+        </p>
+      </div>
+      
+        <form action="/" method="post">
+          {% csrf_token %}
+          <div class="flex space">
+            <input
+              class="space"
+              type="text"
+              name="SearchMovie"
+              id="SearchMovie"
+            />
+            <input class="space" type="submit" value="Bring" name = "Bring" />
+          </div>
+        </form>
+        <div>
+          <p class="NoMov {% if searchedText is not None and searchedText not in MovieList %} visible {% endif %}">{{ searchedText }} is not in Movie Dataset</p>
+        </div>
+      {% if SearchRecommended and searchedText in MovieList %}
+      <div>
+        <h2>The Movies Similar to {{ searchedText }} are : </h2>
+      </div>
+      <div class="card-container">
+        {% for RecMovies in SearchRecommended %}
+        {% with forloop.counter as countF %}
+      <div class="card">
+        <a href="https://www.themoviedb.org/">
+          {% for PosterPic in Poster %}
+          {% with forloop.counter as countS %}
+          {% if countF == countS %}
+          <img src="{{ PosterPic }}" alt="Movie" />
+          {% endif %}
+          {% endwith %}
+          {% endfor %}
+          <h2 class="cardTitle">{{ RecMovies }}</h2>
+          {% for searchGenres in SearchRecGenres %}
+          {% with forloop.counter as countO %}
+          {% if countF == countO %}
+          <p class="cardDesc">{{ searchGenres }}</p>
+          {% endif %}
+          {% endwith %}
+          {% endfor %}
+        </a>
+      </div>
+      {% endwith %}
+      {% endfor %}
+      </div>
+      {% endif %}
+
+
+      {% if RecommendedMovies %}
+      <div>
+        <h2>Recommended For You:</h2>
+      </div>
+      <div class="card-container">
+        {% for Movies in RecommendedMovies %}
+        {% with forloop.counter as countF %}
+        
+        <div class="card">
+          <a href="https://www.themoviedb.org/search?query={{ Movies}}">
+            {% for RecPoster in RecommendedPoster %}
+            {% with forloop.counter as countS %}
+            {% if countF == countS %}
+            <img src="{{ RecPoster }}" alt="Movie" />
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+            <h2 class="cardTitle">{{ Movies }}</h2>
+            {% for Genre in Genres %}
+            {% with forloop.counter as countO %}
+            {% if countF == countO %}
+            <p class="cardDesc">{{ Genre }}</p>
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+          </a>
+        </div>
+        {% endwith %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
